@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Storm</title>
+  <link rel="stylesheet" href="/the-scribe.github.io/style.css" />
+</head>
+<body>
+
+<header>
+  <h1>The Storm</h1>
+  <p>A short story</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="archive.html">Archive</a>
+</nav>
+
+<main>
+  <article>
+    <pre id="full-text" style="white-space: pre-wrap;">Loading...</pre>
+  </article>
+</main>
+
+<footer>
+  &copy; 2025 My Writing Blog. All rights reserved.
+</footer>
+
+<script>
+  async function loadStory() {
+    try {
+      const response = await fetch('story1.txt');
+      const text = await response.text();
+      document.getElementById('full-text').textContent = text;
+    } catch (err) {
+      document.getElementById('full-text').textContent = 'Error loading story.';
+    }
+  }
+
+  window.onload = loadStory;
+</script>
+
+</body>
+</html>
